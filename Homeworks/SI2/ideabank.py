@@ -6,21 +6,17 @@ if "--list" in sys.argv:
     
     ideabank = open("ideabank.txt", "r")
 
-    line = ideabank.readline()
-
     x = 0
  
     print ("Your ideabank: ")
-    while line:
+
+    for line in ideabank:
         x += 1
         print (str(x) + ". " + line, end="")
-        line = ideabank.readline()
 
 elif "--delete" in sys.argv:
     
     ideabank = open("ideabank.txt", "r+")
-
-    line = ideabank.readline()
 
     x = 0
     z = 0
@@ -28,11 +24,10 @@ elif "--delete" in sys.argv:
     y = int(sys.argv[2])
     rows=[]
    
-    while line:
+    for line in ideabank:
         x += 1
         line = str(x) + line + ""
         rows.append(line)
-        line = ideabank.readline()
 
     ideabank.seek(0)
 
@@ -51,8 +46,6 @@ else:
     
     ideabank = open("ideabank.txt", "r+")
 
-    line = ideabank.readline()
-
     x = 0
            
     new = input("What is your new idea:")
@@ -62,10 +55,9 @@ else:
 
     print ("\n" + "Your ideabank: ")
 
-    while line:
+    for line in ideabank:
         x += 1
         print (str(x) + ". " + line, end="")
-        line = ideabank.readline()
 
     print (str(x + 1) + ". " + new)
     
